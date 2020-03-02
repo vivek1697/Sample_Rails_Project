@@ -16,11 +16,18 @@ class ProductsController < ApplicationController
 	def create
 		
 		@product = Product.new(product_params)
-		
-		if(@product.save)
-			redirect_to @product
-		else
-			render 'new'
+
+		products = Product.all
+		products.each do |product|
+			if product.name = @product.name
+				new_qunatity = @product.quantity
+				quantity = product.quantity + new_qunatity
+				product.update(:quantity => quantity)
+				return redirect_to product_path(product)
+			else
+				@product.save
+				return redirect_to @product
+			end
 		end
 	end
 
