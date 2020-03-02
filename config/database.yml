@@ -44,11 +44,11 @@ development:
 #    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 #    timeout: 5000
 
-# production:
-#    adapter: mysql2
-#    database: Rails_DB
-#    username: root
-#    password: Feelthe@1r
-#    host: localhost
-#    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-#    timeout: 5000
+production:
+   adapter: mysql2
+   database: Rails_DB
+   username: root
+   password: Feelthe@1r
+   #host: localhost
+   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+   timeout: 5000
