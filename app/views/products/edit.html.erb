@@ -1,0 +1,27 @@
+<h1>Edit Product</h1>
+<%= form_for :product, url: product_path(@product), method: :patch do |f| %>
+	<% if @product.errors.any? %>
+		<% @product.errors.full_messages.each do |msg|%>
+		<div class="alert alert-danger"><%= msg %></div>
+		<% end %>
+	<% end %>
+	
+	<p>
+		<%= f.label :name %><br>
+		<%= f.text_field(:name, {:class => 'form-control'}) %>
+	</p>
+
+	<p>
+		<%= f.label :detail %><br>
+		<%= f.text_area(:detail, {:class => 'form-control'})%>
+	</p>
+
+	<p>
+		<%= f.label :quantity %><br>
+		<%= f.text_field(:quantity, {:class => 'form-control'}) %>
+	</p>
+
+	<p>
+		<%= f.submit({:class => 'btn btn-primary'}) %>
+	</p>
+<% end %>

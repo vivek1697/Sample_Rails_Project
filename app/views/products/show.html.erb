@@ -1,0 +1,9 @@
+<h2><%= @product.name %></h2>
+<p><%= @product.detail %></p>
+<p><%= @product.quantity %></p>
+<hr>
+<%= link_to "Edit", edit_product_path(@product), :class => 'btn btn-default'%>
+<%= link_to "Delete", product_path(@product), 
+						method: :delete,
+						data: {confirm: 'Are you sure?'},
+						:class => 'btn btn-danger'%>

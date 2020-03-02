@@ -1,0 +1,9 @@
+<h1>Product List</h1>
+<% @products.each do |product| %>
+	<div class="well">
+		<h3><%= product.name %></h3>
+		<p><%= product.detail %></p>
+		<p><%= product.quantity %></p>
+		<%= link_to "More Details", product_path(product), :class => 'btn btn-default'%>
+	</div>
+<% end %>
