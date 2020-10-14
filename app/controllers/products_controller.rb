@@ -14,6 +14,7 @@ class ProductsController < ApplicationController
 	end
 
 	def create
+		#code to manage existing products
 		@product = Product.new(product_params)	
 		if product = Product.find_by(name: @product.name)
 			new_qunatity = @product.quantity
