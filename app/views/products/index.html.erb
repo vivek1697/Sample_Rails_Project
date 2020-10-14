@@ -4,6 +4,7 @@
 		<h3><%= product.name %></h3>
 		<p><%= product.detail %></p>
 		<p><%= product.quantity %></p>
+		<p><%= product.expiry_date %></p>
 		<%= link_to "More Details", product_path(product), :class => 'btn btn-default'%>
 	</div>
 <% end %>

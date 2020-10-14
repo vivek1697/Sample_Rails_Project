@@ -14,20 +14,18 @@ class ProductsController < ApplicationController
 	end
 
 	def create
-		
-		@product = Product.new(product_params)
-
-		products = Product.all
-		products.each do |product|
-			if product.name = @product.name
-				new_qunatity = @product.quantity
-				quantity = product.quantity + new_qunatity
-				product.update(:quantity => quantity)
-				return redirect_to product_path(product)
-			else
-				@product.save
-				return redirect_to @product
-			end
+		@product = Product.new(product_params)	
+		if product = Product.find_by(name: @product.name)
+			new_qunatity = @product.quantity
+			quantity = product.quantity + new_qunatity
+			product.update(:quantity => quantity)
+			flash[:notice] = "Product was successfully updated"
+			return redirect_to product
+		else
+			#@product = Product.new(product_params)	
+			@product.save
+			flash[:notice] = "Product was successfully added"
+			return redirect_to @product
 		end
 	end
 
@@ -52,6 +50,6 @@ class ProductsController < ApplicationController
 
 
 	private def product_params
-		params.require(:product).permit(:name, :detail, :quantity)
+		params.require(:product).permit(:name, :detail, :quantity, :expiry_date)
 	end
 end
